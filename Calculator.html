@@ -3,6 +3,9 @@
 <head>
   <title>Calculadora</title>
   <style>
+    body {
+      background-color: #5a5a5a;
+    }
     .container {
       width: 300px;
       height: 350px;
@@ -28,10 +31,26 @@
       color: white;
       border: none;
       border-radius: 5px;
+      transition: background-color 0.3s ease;
     }
     input[type="button"]:hover {
       background-color: #7c0909;
       cursor: pointer;
+    }
+    .button-animation {
+      animation-name: buttonClick;
+      animation-duration: 0.3s;
+    }
+    @keyframes buttonClick {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
     }
   </style>
 </head>
@@ -52,8 +71,8 @@
     <input type="button" value="-" onclick="addToExpression('-')">
     <input type="button" value="*" onclick="addToExpression('*')">
     <input type="button" value="/" onclick="addToExpression('/')">
-    <input type="button" value="=" onclick="evaluateExpression()">
-    <input type="button" value="C" onclick="clearExpression()">
+    <input type="button" value="=" onclick="evaluateExpression()" class="button-animation">
+    <input type="button" value="C" onclick="clearExpression()" class="button-animation">
   </div>
 
   <script>
