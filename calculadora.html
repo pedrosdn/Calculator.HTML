@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 350px;
+      background-color: #1f201f;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 10px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+    }
+    input[type="text"] {
+      grid-column: 1 / span 4;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 18px;
+    }
+    input[type="button"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: red;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    input[type="button"]:hover {
+      background-color: #7c0909;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="text" id="result" readonly>
+    <input type="button" value="1" onclick="addToExpression('1')">
+    <input type="button" value="2" onclick="addToExpression('2')">
+    <input type="button" value="3" onclick="addToExpression('3')">
+    <input type="button" value="4" onclick="addToExpression('4')">
+    <input type="button" value="5" onclick="addToExpression('5')">
+    <input type="button" value="6" onclick="addToExpression('6')">
+    <input type="button" value="7" onclick="addToExpression('7')">
+    <input type="button" value="8" onclick="addToExpression('8')">
+    <input type="button" value="9" onclick="addToExpression('9')">
+    <input type="button" value="0" onclick="addToExpression('0')">
+    <input type="button" value="+" onclick="addToExpression('+')">
+    <input type="button" value="-" onclick="addToExpression('-')">
+    <input type="button" value="*" onclick="addToExpression('*')">
+    <input type="button" value="/" onclick="addToExpression('/')">
+    <input type="button" value="=" onclick="evaluateExpression()">
+    <input type="button" value="C" onclick="clearExpression()">
+  </div>
+
+  <script>
+    function addToExpression(value) {
+      document.getElementById('result').value += value;
+    }
+
+    function evaluateExpression() {
+      var expression = document.getElementById('result').value;
+      var result = eval(expression);
+      document.getElementById('result').value = result;
+    }
+
+    function clearExpression() {
+      document.getElementById('result').value = '';
+    }
+  </script>
+</body>
+</html>
